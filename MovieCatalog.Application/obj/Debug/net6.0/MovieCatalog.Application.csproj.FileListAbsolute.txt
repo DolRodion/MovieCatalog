@@ -1,0 +1,12 @@
+C:\Users\dolro\source\repos\MovieСatalog\MovieCatalog.Application\bin\Debug\net6.0\MovieCatalog.Application.deps.json
+C:\Users\dolro\source\repos\MovieСatalog\MovieCatalog.Application\bin\Debug\net6.0\MovieCatalog.Application.dll
+C:\Users\dolro\source\repos\MovieСatalog\MovieCatalog.Application\bin\Debug\net6.0\MovieCatalog.Application.pdb
+C:\Users\dolro\source\repos\MovieСatalog\MovieCatalog.Application\obj\Debug\net6.0\MovieCatalog.Application.csproj.AssemblyReference.cache
+C:\Users\dolro\source\repos\MovieСatalog\MovieCatalog.Application\obj\Debug\net6.0\MovieCatalog.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dolro\source\repos\MovieСatalog\MovieCatalog.Application\obj\Debug\net6.0\MovieCatalog.Application.AssemblyInfoInputs.cache
+C:\Users\dolro\source\repos\MovieСatalog\MovieCatalog.Application\obj\Debug\net6.0\MovieCatalog.Application.AssemblyInfo.cs
+C:\Users\dolro\source\repos\MovieСatalog\MovieCatalog.Application\obj\Debug\net6.0\MovieCatalog.Application.csproj.CoreCompileInputs.cache
+C:\Users\dolro\source\repos\MovieСatalog\MovieCatalog.Application\obj\Debug\net6.0\MovieCatalog.Application.dll
+C:\Users\dolro\source\repos\MovieСatalog\MovieCatalog.Application\obj\Debug\net6.0\refint\MovieCatalog.Application.dll
+C:\Users\dolro\source\repos\MovieСatalog\MovieCatalog.Application\obj\Debug\net6.0\MovieCatalog.Application.pdb
+C:\Users\dolro\source\repos\MovieСatalog\MovieCatalog.Application\obj\Debug\net6.0\ref\MovieCatalog.Application.dll

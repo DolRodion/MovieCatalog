@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "WCb2BusiB+mSnd++VAZiBcHE0M5jXTl4qyWenrzVq3OHUz25gdISrpm0YsRH7QgiVQtVu4qwPJpqNlqsK0Qiog==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dolro\\source\\repos\\MovieСatalog\\MovieCatalog.Application\\MovieCatalog.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dolro\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\dolro\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\dolro\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\dolro\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\dolro\\.nuget\\packages\\moviecollection.openmoviedatabase\\4.0.1\\moviecollection.openmoviedatabase.4.0.1.nupkg.sha512",
+    "C:\\Users\\dolro\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\dolro\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\dolro\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\dolro\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
