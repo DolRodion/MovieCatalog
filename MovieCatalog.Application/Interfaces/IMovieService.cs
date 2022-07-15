@@ -10,5 +10,8 @@ namespace MovieCatalog.Application.Interfaces
     public interface IMovieService
     {
         Task<ShortMovieModel[]> GetMoviesAsync();
+
+        Task<ShortMovieModel[]> GetMoviesByTitleAsync(string movieTitle);
+
     }
 }

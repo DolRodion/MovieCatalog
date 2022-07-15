@@ -61,5 +61,15 @@ namespace MovieCatalog.Application.Services
 
             return result;
         }
+
+        public async Task<ShortMovieModel[]> GetMoviesByTitleAsync(string movieTitle)
+        {
+
+
+            return null;
+        }
+
+
+
     }
 }
