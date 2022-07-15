@@ -14,13 +14,13 @@ namespace MovieCatalog.Application.Services
 {
     public class MovieService : IMovieService
     {
-        private readonly IConfiguration configuration;
-        private readonly HttpClient httpClient = new HttpClient();
+        private readonly IImdbApiService imdbApiService;
 
-        public MovieService(IConfiguration configuration)
+        public MovieService(IImdbApiService imdbApiService)
         {
-            this.configuration = configuration;
+            this.imdbApiService = imdbApiService;
         }
+
 
         /// <summary>
         /// Получение фильмов для стартовой страницы
@@ -28,45 +28,18 @@ namespace MovieCatalog.Application.Services
         // <returns></returns>
         public async Task<ShortMovieModel[]> GetMoviesAsync()
         {
-            var options = new OpenMovieDatabaseOptions(configuration["OMDbApiKey"]);
-            var service = new OpenMovieDatabaseService(httpClient, options);
-
             var words = new string[] { "avengers", "water", "cold", "thirst", "war", "world", "save", "bounce" , "one", "explosion"};
 
             Random x = new Random();
 
-            var moviesByWord = await service.SearchMoviesAsync(words[x.Next(0, 9)], "", SearchType.Movie);
-
-            if (!moviesByWord.IsSuccess)
-            {
-                 throw new Exception("Ошибка получения фильмов");
-            }
-
-            var resultList = new List<ShortMovieModel>();
-
-            foreach (var movie in moviesByWord.Items)
-            {
-                var movieInfoByTitle = await service.SearchMovieByImdbIdAsync(movie.ImdbId);
-                resultList.Add(new ShortMovieModel()
-                {
-                    Title = movieInfoByTitle.Title,
-                    Description = movieInfoByTitle.Plot,
-                    ImdbRating = movieInfoByTitle.ImdbRating,
-                    Poster = movieInfoByTitle.Poster,
-                    ImdbId = movieInfoByTitle.ImdbId
-                }); 
-            }
-
-            var result = resultList.ToArray();
-
-            return result;
+            return await imdbApiService.GetMoviesByTitle(words[x.Next(0, 9)]); ;
         }
+
 
         public async Task<ShortMovieModel[]> GetMoviesByTitleAsync(string movieTitle)
         {
 
-
-            return null;
+            return await imdbApiService.GetMoviesByTitle(movieTitle); 
         }
 
 

@@ -22,7 +22,6 @@ export class  MovieService {
     static async GetMoviesByTitle(movieTitle : string): Promise<ShortMovieModel[]> {
         const url = this.urlBase + "Movie/GetMoviesByTitle";
         const response = await this.AxiosBase.axios.get(url, {params: {movieTitle: movieTitle}});
-
         return response.data as ShortMovieModel[];
     }
 }
@@ -40,7 +39,6 @@ export class ShortMovieModel {
 
     'ImdbRating': string;
 
-   
 
     constructor(data: undefined | any = {}) {
         this['ImdbId'] = data['ImdbId'];

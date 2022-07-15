@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div class="dinamicBlock">
     <div class="content-title">
-      <h2>Movie list</h2>
+      <h1>Movie list</h1>
     </div>
 
-    <div class="content-inp">
-      <h2>Search film</h2>
+    <div class="mainContent">
       <div class="search-block">
-        <v-text-field v-model.trim="titleMovie"> </v-text-field>
+        <h2>Search film</h2>
+        <v-text-field v-model.trim="movieTitle" class="inputSearchMovie"></v-text-field>
         <v-btn v-on:click="moviesByTitle()">Search</v-btn>
       </div>
 
       <ul class="movie-list">
-        <li v-for="movie in Movies" v-on:click="movieById( )">
+        <li v-for="movie in Movies" v-on:click="movieById()">
           <div class="divForImg"><img :src="movie.Poster"></div>
           <h1>{{ movie.Title }}</h1>
           <p class="Description"> Description: <span class="DescriptionItem">{{ movie.Description }}</span></p>
@@ -36,7 +36,7 @@ import { Component, Vue } from "vue-property-decorator";
 
 export default class Movie extends Vue {
   public movies: ShortMovieModel[] = [];
-  public titleMovie: string = '';
+  public movieTitle: string = '';
 
   async created() {
     try {
@@ -54,7 +54,7 @@ export default class Movie extends Vue {
   }
 
   public async moviesByTitle() {
-    this.movies = await MovieService.GetMoviesByTitle(this.titleMovie);
+    this.movies = await MovieService.GetMoviesByTitle(this.movieTitle);
   }
 
   get Movies() {
@@ -76,29 +76,42 @@ img {
   height: 440px;
 }
 
+
 button {
   width: 100px;
-  height: 32px;
-  margin-left: 10px;
+  height: 32px; 
+}
+.inputSearchMovie{
+  float: left;
+}
+.dinamicBlock{
+  max-width: 1400px;
+}
+.content-title{
+  margin-bottom: 20px;
+  text-align: center;
+ }
+.content-title h1{
+  margin: 0;
+  color: blue;
 }
 
-.filtr-block {
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
-
-.content-select {
-  height: 35px;
-  width: 250px;
-  font-size: 20px;
+.search-block {
   border: 1px solid silver;
-  border-radius: 5px;
+  margin-bottom: 20px;
+  height: 100px;
 }
 
 .movie-list li {
   padding: 20px 0;
   height: 430px;
   border: 1px solid silver;
+  margin-bottom: 10px;
+}
+
+.movie-list li:hover {
+   transform: scale(1.05);
+   transition: 1s; /* Время эффекта */
 }
 
 .movie-list .Description {

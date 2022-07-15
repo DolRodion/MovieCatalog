@@ -47,6 +47,8 @@ namespace MovieСatalog
             services.AddSwaggerGen();
 
             services.AddTransient<IMovieService, MovieService>();
+    
+            services.AddTransient<IImdbApiService, ImdbApiService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

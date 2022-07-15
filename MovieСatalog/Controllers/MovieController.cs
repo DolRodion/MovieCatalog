@@ -27,5 +27,18 @@ namespace MovieСatalog.Controllers
 
             return Ok(result);
         }
+
+        /// <summary>
+        /// Получить фильмы по его названию
+        /// </summary>
+        [HttpGet]
+        [Route("GetMoviesByTitle")]
+        public async Task<ActionResult<ShortMovieModel[]>> GetMoviesByTitleAsync(string movieTitle)
+        {
+            var result = await movieService.GetMoviesByTitleAsync(movieTitle);
+
+            return Ok(result);
+        }
+
     }
 }

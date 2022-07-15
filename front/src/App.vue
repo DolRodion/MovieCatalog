@@ -2,7 +2,7 @@
   <div>
     <!--Хедер -->
     <div class="header">
-      <router-link class="title" to="/">MovieСatalog</router-link>
+      <router-link class="title" to="/">Movie Catalog</router-link>
     </div>
 
     <!--Left block -->
@@ -11,7 +11,7 @@
         <li>
           <router-link to="/"
             ><div>
-              <img src="@/assets/Games.png" /><span>Movie list</span>
+              <img src="@/assets/Games.png" /><span>MovieList</span>
             </div></router-link
           >
         </li>
@@ -22,7 +22,7 @@
         </li>
         <li>
           <router-link to="/Movie/Tehknology"
-            ><img src="@/assets/Tek.png" /><span>Еechnologies used</span></router-link
+            ><img src="@/assets/Tek.png" /><span>Тechnologies</span></router-link
           >
         </li>
       </ul>
@@ -65,7 +65,7 @@ li{
   position: fixed;
   z-index: 100000;
   width: 100%;
-  height: 30px;
+  height: 50px;
   padding: 10px 10px;
   background-color: #1c89e6;
 }
@@ -110,20 +110,5 @@ li{
   margin-left: 220px;
   min-height: 600px;
   padding: 20px 40px;
-}
-
-.content-inp{
-  padding: 20px;
-  background-color: white;
-  border: 1px solid #e0e0e0;
-  margin-top: 15px;
-  border-radius: 5px;
-}
-
-.content-title{
-  padding: 20px;
-  background-color: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
 }
 </style>
