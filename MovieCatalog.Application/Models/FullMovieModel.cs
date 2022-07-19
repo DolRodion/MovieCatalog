@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace MovieCatalog.Application.Models
 {
     /// <summary>
-    /// Краткое описание фильма
+    /// Полное описание фильма
     /// </summary>
-    public class ShortMovieModel
+    public class FullMovieModel
     {
         /// <summary>
         /// Id фильма
@@ -35,6 +35,29 @@ namespace MovieCatalog.Application.Models
         /// Рейтинг фильма
         /// </summary>
         public string ImdbRating { get; set; }
+
+        /// <summary>
+        /// Актеры(в главных ролях)
+        /// </summary>
+        public string Actors { get; set; }
+
+        /// <summary>
+        /// Страна съемки
+        /// </summary>
+        public string Country { get; set; }
+
+        /// <summary>
+        /// Жанр/ы фильма
+        /// </summary>
+        public string Genre { get; set; }
+
+        /// <summary>
+        /// Продюсер
+        /// </summary>
+        public string Producer { get; set; }
+
+
+
 
     }
 }

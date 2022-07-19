@@ -1,48 +1,75 @@
 ﻿using MovieCatalog.Application.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using MovieCatalog.Application.Interfaces;
-using System.Net.Http;
-using MovieCollection.OpenMovieDatabase;
-using MovieCollection.OpenMovieDatabase.Enums;
+using System;
+using System.Linq;
 
 namespace MovieCatalog.Application.Services
 {
+    /// <inheritdoc/>
     public class MovieService : IMovieService
     {
-        private readonly IImdbApiService imdbApiService;
-
-        public MovieService(IImdbApiService imdbApiService)
-        {
-            this.imdbApiService = imdbApiService;
-        }
-
+        private readonly IOmdbApiProvider omdbApiService;
 
         /// <summary>
-        /// Получение фильмов для стартовой страницы
+        /// Инициализация
         /// </summary>
-        // <returns></returns>
-        public async Task<ShortMovieModel[]> GetMoviesAsync()
+        /// <param name="omdbApiService">Сервис работы с ImdbApi</param>
+        public MovieService(IOmdbApiProvider omdbApiService)
         {
-            var words = new string[] { "avengers", "water", "cold", "thirst", "war", "world", "save", "bounce" , "one", "explosion"};
-
-            Random x = new Random();
-
-            return await imdbApiService.GetMoviesByTitle(words[x.Next(0, 9)]); ;
+            this.omdbApiService = omdbApiService ?? throw new ArgumentNullException(nameof(omdbApiService));
         }
 
-
-        public async Task<ShortMovieModel[]> GetMoviesByTitleAsync(string movieTitle)
+        
+        /// <inheritdoc/>
+        public async Task<ShortMovieModel[]> GetMoviesByTitleAsync(string movieTitle, int page)
         {
+            if (string.IsNullOrEmpty(movieTitle)) 
+            {
+                throw new ArgumentNullException("Wrong movieTitle field");
+            }
 
-            return await imdbApiService.GetMoviesByTitle(movieTitle); 
+            if (page == default(int))
+            {
+                throw new ArgumentException("Wrong page field");
+            }
+
+            var data = await omdbApiService.GetMoviesByTitleAsync(movieTitle,page); 
+
+            return data.Select(movie => new ShortMovieModel()
+            {
+                Title = movie.Title,
+                Description = movie.Plot,
+                ImdbRating = movie.ImdbRating,
+                Poster = movie.Poster,
+                ImdbId = movie.ImdbId
+            })
+            .ToArray();
         }
 
+        /// <inheritdoc/>
+        public async Task<FullMovieModel> GetFullMovieAsync(string movieId)
+        {
+            if (string.IsNullOrEmpty(movieId))
+            {
+                throw new ArgumentNullException("Wrong movieId field");
+            }
 
+            var movieInfo = await omdbApiService.GetFullMovieAsync(movieId);
+
+            return new FullMovieModel()
+            {
+                Title = movieInfo.Title,
+                Description = movieInfo.Plot,
+                ImdbRating = movieInfo.ImdbRating,
+                Poster = movieInfo.Poster,
+                ImdbId = movieInfo.ImdbId,
+                Actors = movieInfo.Actors,
+                Country = movieInfo.Country,
+                Genre = movieInfo.Genre,
+                Producer = movieInfo.Writer
+            };
+        }
 
     }
 }

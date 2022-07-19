@@ -9,11 +9,23 @@ using System.Threading.Tasks;
 
 namespace MovieCatalog.Application.Interfaces
 {
-    public interface IImdbApiService
+    /// <summary>
+    /// Провайдер работы с OmdbApi
+    /// </summary>
+    public interface IOmdbApiProvider
     {
-        OpenMovieDatabaseService GetObjectOpenMovieDatabase();
-        Task<ShortMovieModel[]> GetMoviesByTitle(string movieTitle);
-        Task<Movie> SearchMovieByImdbIdAsync(string ImdbId);
+        /// <summary>
+        /// Получает фильмы по названию
+        /// </summary>
+        /// <param name="movieTitle">Название</param>
+        /// <param name="page">Страница</param>
+        Task<Movie[]> GetMoviesByTitleAsync(string movieTitle, int page);
+
+        /// <summary>
+        /// Получает подробную информацию о фильме по его идентификатору
+        /// </summary>
+        /// <param name="movieId">Идентификатор фильма</param>
+        Task<Movie> GetFullMovieAsync(string movieId);
 
     }
 }

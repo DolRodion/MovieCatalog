@@ -1,17 +1,25 @@
 ﻿using MovieCatalog.Application.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MovieCatalog.Application.Interfaces
 {
+    /// <summary>
+    /// Интерфейс сервиса работы с фильмами
+    /// </summary>
     public interface IMovieService
     {
-        Task<ShortMovieModel[]> GetMoviesAsync();
+        /// <summary>
+        /// Получает фильмы по его названию
+        /// </summary>
+        /// <param name="movieTitle">Заголовок фильма</param>
+        /// <param name="page">Страница</param>
+        Task<ShortMovieModel[]> GetMoviesByTitleAsync(string movieTitle, int page);
 
-        Task<ShortMovieModel[]> GetMoviesByTitleAsync(string movieTitle);
+        /// <summary>
+        /// Получает полную информацию о фильме по id
+        /// </summary>
+        /// <param name="movieId">Идентфикатор фильма</param>
+        Task<FullMovieModel> GetFullMovieAsync(string movieId);
 
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "K6MIcr4bpl6mF1jpH6jRLNsmFVK0E6wo5UppHzE94qFSL3rWwQbY8qjRYe7+D5fFWn6u39np5E/ymNC+EQ0qPw==",
+  "dgSpecHash": "Jc6Cxik98JaOVZle4kLiF6+77tUJg65AzeGetyNZFxay9+lYrz1eXw2TWTPCgEvpd1gmMT6s+N6gnk7ItIUzVQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\dolro\\source\\repos\\MovieСatalog\\MovieСatalog\\MovieСatalog.WebApi.csproj",
   "expectedPackageFiles": [
@@ -36,6 +36,7 @@
     "C:\\Users\\dolro\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\6.0.0\\microsoft.extensions.filesystemglobbing.6.0.0.nupkg.sha512",
     "C:\\Users\\dolro\\.nuget\\packages\\microsoft.extensions.hosting\\6.0.1\\microsoft.extensions.hosting.6.0.1.nupkg.sha512",
     "C:\\Users\\dolro\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\6.0.0\\microsoft.extensions.hosting.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\dolro\\.nuget\\packages\\microsoft.extensions.http\\6.0.0\\microsoft.extensions.http.6.0.0.nupkg.sha512",
     "C:\\Users\\dolro\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
     "C:\\Users\\dolro\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\dolro\\.nuget\\packages\\microsoft.extensions.logging.configuration\\6.0.0\\microsoft.extensions.logging.configuration.6.0.0.nupkg.sha512",

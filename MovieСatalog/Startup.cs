@@ -1,35 +1,39 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using MovieCatalog.Application.Interfaces;
-using MovieCatalog.Application.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MovieCatalog.Application;
 
 namespace MovieСatalog
 {
+    /// <summary>
+    /// Класс инициализации веб хоста
+    /// </summary>
     public class Startup
     {
+        private IConfiguration configuration { get; }
+
+        /// <summary>
+        /// Инициализация
+        /// </summary>
+        /// <param name="configuration">Конфигурация</param>
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.configuration = configuration ?? throw new System.ArgumentNullException(nameof(configuration));
         }
 
-        public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to add services to the container.
+        /// </summary>
+        /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers().AddJsonOptions(
             options =>
             {
+                //Отключаем правило наименования свойств
                 options.JsonSerializerOptions.PropertyNamingPolicy = null;
             });
 
@@ -46,33 +50,31 @@ namespace MovieСatalog
 
             services.AddSwaggerGen();
 
-            services.AddTransient<IMovieService, MovieService>();
-    
-            services.AddTransient<IImdbApiService, ImdbApiService>();
+            //Подключаем слой бизнес логики
+            services.AddApplication();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app">Defines a class that provides the mechanisms to configure an application's request pipeline.</param>
+        /// <param name="env">Provides information about the web hosting environment an application is running in.</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            //app.UseHttpsRedirection();
-
 
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseCors(builder => builder
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .SetIsOriginAllowed((host) => true)
-            .AllowCredentials()
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .SetIsOriginAllowed((host) => true)
+                .AllowCredentials()
              );
 
             app.UseEndpoints(endpoints =>
