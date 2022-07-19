@@ -1,1 +1,1 @@
-﻿# Movie-сatalog(OmdbApi)
+﻿# Movie-сatalog(OMDbApi)
